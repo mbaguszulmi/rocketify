@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rocketify</title>
+
+    <!-- p5js -->
+    <script src="./assets/js/p5/p5.min.js"></script>
+
+    <!-- documentJS -->
+    <script src="./assets/js/document.js"></script>
+
+    <!-- components -->
+    <script src="./assets/js/components/button.js"></script>
+    <script src="./assets/js/components/asteroid.js"></script>
+    <script src="./assets/js/components/obstacle.js"></script>
+    <script src="./assets/js/components/obstacles.js"></script>
+    <script src="./assets/js/components/rocket.js"></script>
+
+    <!-- game -->
+    <script src="./assets/js/game.js"></script>
+
+    <!-- menu -->
+    <script src="./assets/js/menu.js"></script>
+
+    <!-- main -->
+    <script src="./assets/js/main.js"></script>
+
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="main-nav">
+            <div class="brand-logo">
+                <a href=".">
+                    <img src="./assets/images/logo.png" alt="logo" class="image-logo">
+                </a>
+            </div>
+
+            <div class="nav-items-container">
+                <div class="nav-item"><a href="#" class="nav-link">About</a></div>
+                <div class="nav-item"><a href="#" class="nav-link">View Source</a></div>
+                <div class="nav-item"><a href="#" class="nav-link">Creator</a></div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-app">
+        <h1 class="welcome">
+            Welcome to Rocketify
+        </h1>
+        <p class="greeting">
+            Fly your rocket to the outer space. More distance = more score
+        </p>
+        <div class="game-container" id="game-container"></div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="copyright">Copyright &copy; 2019</div>
+        </div>
+    </footer>
+</body>
+</html>
