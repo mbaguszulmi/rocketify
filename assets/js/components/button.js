@@ -13,6 +13,7 @@ let Button = class {
         this.area = undefined;
         this.fillHover = fillHover;
         this.fontHover = fontHover;
+        this.disabled = false;
     }
 
     draw() {
@@ -46,24 +47,34 @@ let Button = class {
     }
 
     onMouseOver() {
-        if (this.area !== undefined && mouseX >= this.area[0] && mouseX <= this.area[2] && mouseY >= this.area[1] && mouseY <= this.area[3]) {
-            if (this.fillHover) {
-                this.fillColor = this.fillHover;
+        if (!this.disabled) {
+            if (this.area !== undefined && mouseX >= this.area[0] && mouseX <= this.area[2] && mouseY >= this.area[1] && mouseY <= this.area[3]) {
+                if (this.fillHover) {
+                    this.fillColor = this.fillHover;
+                }
+    
+                if (this.fontHover) {
+                    this.fontColor = this.fontHover
+                }
             }
-
-            if (this.fontHover) {
-                this.fontColor = this.fontHover
+            else {
+                this.fillColor = this.fillColorDefault;
+                this.fontColor = this.fontColorDefault;
             }
-        }
-        else {
-            this.fillColor = this.fillColorDefault;
-            this.fontColor = this.fontColorDefault;
         }
     }
 
     onMouseClick(callback) {
-        if (this.area !== undefined && mouseX >= this.area[0] && mouseX <= this.area[2] && mouseY >= this.area[1] && mouseY <= this.area[3]) {
+        if (!this.disabled && this.area !== undefined && mouseX >= this.area[0] && mouseX <= this.area[2] && mouseY >= this.area[1] && mouseY <= this.area[3]) {
             callback();
         }
+    }
+
+    disable() {
+        this.disabled = true;
+    }
+
+    enable() {
+        this.disabled = false;
     }
 }

@@ -29,12 +29,46 @@ function setup() {
     game = new Game();
 }
 
+function keyPressed() {
+    switch (page) {
+        case 0:
+            
+            break;
+        case 1:
+            game.onKeyPress();
+            break;
+    
+        default:
+            break;
+    }
+}
+
 function mouseClicked() {
-    menu.onMouseClick();
+    switch (page) {
+        case 0:
+            menu.onMouseClick();
+            break;
+        case 1:
+            game.onMouseClick();
+            break;
+    
+        default:
+            break;
+    }
 }
 
 function mouseMoved() {
-    menu.onMouseOver();
+    switch (page) {
+        case 0:
+            menu.onMouseOver();
+            break;
+        case 1:
+            game.onMouseOver();
+            break;
+    
+        default:
+            break;
+    }
 }
 
 function draw() {

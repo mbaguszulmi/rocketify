@@ -7,8 +7,11 @@ let Rocket = class {
         this.velocity = createVector(0, 0);
         this.alive = true;
         this.minSpeed = 1;
-        this.rad = 20;
+        this.rad = 15;
         this.rocketImg = image;
+        this.angleSpeed = 1.5;
+        this.angle = 0;
+        this.maxAngle = 82;
     }
 
     setAcceleration(a) {
@@ -22,7 +25,7 @@ let Rocket = class {
     draw() {
         push();
         translate(this.pos.x, this.pos.y);
-        // circle(0, 0, this.rad*2);
+        rotate(radians(this.angle));
         image(this.rocketImg, -74.169/2, -20, 74.169, 40);
         pop();
     }
@@ -33,7 +36,8 @@ let Rocket = class {
             this.velocity.x = this.minSpeed;
         }
 
-        this.pos.add(this.velocity);
+        let curV = p5.Vector.fromAngle(radians(this.angle), this.velocity.mag());
+        this.pos.add(curV);
         this.distancePassed = Math.round(this.pos.x - this.startX);
 
         if (this.pos.y + this.rad > height) {
@@ -44,19 +48,19 @@ let Rocket = class {
         }
     }
 
-    jump() {
-        this.velocity = createVector(this.velocity.x, -6.5);
-    }
-
     onKeyDown() {
         if (keyIsDown(UP_ARROW)) {
-            this.velocity.y = -1.5;
+            this.angle -= this.angleSpeed;
         }
         else if (keyIsDown(DOWN_ARROW)) {
-            this.velocity.y = 1.5;
+            this.angle += this.angleSpeed;
         }
-        else {
-            this.velocity.y = 0;
+
+        if (this.angle > this.maxAngle) {
+            this.angle = this.maxAngle;
+        }
+        else if (this.angle < -this.maxAngle) {
+            this.angle = -this.maxAngle;
         }
         
         if (keyIsDown(32)) {
