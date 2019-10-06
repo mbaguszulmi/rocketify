@@ -36,6 +36,10 @@ let Game = class {
                 soundSad.stop();
             }
 
+            this.resumeButton.disable();
+            this.restartButton.disable();
+            this.menuButton.disable();
+            this.pauseButton.enable();
         }
         else if (!this.rocket.isAlive()) {
             if (!soundSad.isPlaying()) {
@@ -53,10 +57,11 @@ let Game = class {
             this.restartButton.enable();
             this.menuButton.enable();
         }
-        else if (this.paused) {
+        else if (this.isPaused) {
             this.pauseButton.disable();
             this.restartButton.enable();
             this.menuButton.enable();
+            this.resumeButton.enable();
         }
 
         push();
@@ -129,18 +134,10 @@ let Game = class {
     onMouseClick() {
         this.pauseButton.onMouseClick(() => {
             this.isPaused = true;
-            this.pauseButton.disable();
-            this.resumeButton.enable();
-            this.restartButton.enable();
-            this.menuButton.enable();
         });
 
         this.resumeButton.onMouseClick(() => {
             this.isPaused = false;
-            this.resumeButton.disable();
-            this.restartButton.disable();
-            this.menuButton.disable();
-            this.pauseButton.enable();
         });
 
         this.restartButton.onMouseClick(() => {
@@ -156,7 +153,7 @@ let Game = class {
     onKeyPress() {
         switch (keyCode) {
             case 80:
-                if (this.rocket.isAlive) {
+                if (this.rocket.isAlive()) {
                     this.isPaused = !this.isPaused;
                 }
                 break;
