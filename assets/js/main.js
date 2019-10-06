@@ -2,10 +2,21 @@ let font,
     page,
     menu,
     game,
-    asteroidImg;
+    asteroidImg,
+    rocketImg,
+    soundHappy,
+    soundSad;
 
 function preload() {
     font = loadFont('./assets/fonts/nunito/ttf/Nunito-SemiBold.ttf');
+    asteroidImg = [];
+    for (let i = 0; i < 5; i++) {
+        asteroidImg.push(loadImage(`./assets/images/game-image/obj${i+1}.png`))
+    }
+    rocketImg = loadImage('./assets/images/game-image/rocket.png');
+
+    soundHappy = loadSound('./assets/audio/suweorajamu.wav');
+    soundSad = loadSound('./assets/audio/mawwang.wav');
 }
 
 function setup() {
@@ -14,10 +25,6 @@ function setup() {
     frameRate(60);
     textFont(font);
     page = 0;
-    asteroidImg = [];
-    for (let i = 0; i < 5; i++) {
-        asteroidImg.push(loadImage(`./assets/images/game-image/obj${i+1}.png`))
-    }
     menu = new Menu();
     game = new Game();
 }

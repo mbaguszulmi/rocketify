@@ -8,8 +8,8 @@ let Asteroid = class {
 
     draw() {
         push();
-        fill(255);
-        circle(this.pos.x, this.pos.y, this.d);
+        // fill(255);
+        // circle(this.pos.x, this.pos.y, this.d);
         image(this.image, this.pos.x - this.r, this.pos.y - this.r, this.d, this.d);
         pop();
     }

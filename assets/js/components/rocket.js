@@ -1,5 +1,6 @@
 let Rocket = class {
-    constructor(x, y) {
+    constructor(x, y, image) {
+        this.startX = x;
         this.pos = createVector(x, y);
         this.distancePassed = 0;
         this.acceleration = createVector(0, 0);
@@ -7,7 +8,7 @@ let Rocket = class {
         this.alive = true;
         this.minSpeed = 1;
         this.rad = 20;
-        this.distanceL = 0;
+        this.rocketImg = image;
     }
 
     setAcceleration(a) {
@@ -19,7 +20,11 @@ let Rocket = class {
     }
 
     draw() {
-        circle(this.pos.x, this.pos.y, this.rad*2);
+        push();
+        translate(this.pos.x, this.pos.y);
+        // circle(0, 0, this.rad*2);
+        image(this.rocketImg, -74.169/2, -20, 74.169, 40);
+        pop();
     }
 
     update() {
@@ -29,10 +34,7 @@ let Rocket = class {
         }
 
         this.pos.add(this.velocity);
-        this.distanceL += this.velocity.x;
-        if (Math.round(this.distanceL) % 100 == 1) {
-            this.distancePassed += 1;
-        }
+        this.distancePassed = Math.round(this.pos.x - this.startX);
 
         if (this.pos.y + this.rad > height) {
             this.pos.y = height - this.rad;
@@ -82,6 +84,6 @@ let Rocket = class {
     }
 
     getDistance() {
-        return this.distancePassed;
+        return Math.floor(this.distancePassed/100);
     }
 }
