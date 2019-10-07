@@ -26,6 +26,9 @@
     <!-- menu -->
     <script src="./assets/js/menu.js"></script>
 
+    <!-- help -->
+    <script src="./assets/js/help.js"></script>
+
     <!-- main -->
     <script src="./assets/js/main.js"></script>
 
@@ -45,7 +48,6 @@
             <div class="nav-items-container">
                 <div class="nav-item"><a href="#" class="nav-link">About</a></div>
                 <div class="nav-item"><a href="https://github.com/mbaguszulmi/rocketify" target="_blank" rel="noopener noreferrer" class="nav-link">View Source</a></div>
-                <div class="nav-item"><a href="#" class="nav-link">Creator</a></div>
             </div>
         </nav>
     </header>
@@ -57,7 +59,16 @@
         <p class="greeting">
             Fly your rocket to the outer space. More distance = more score
         </p>
-        <div class="game-container" id="game-container"></div>
+        <div class="game-container" id="game-container">
+            <div id="p5_loading">
+                <p class="text">Loading</p>
+                <div class="balls">
+                    <div class="ball"></div>
+                    <div class="ball"></div>
+                    <div class="ball"></div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer class="footer">

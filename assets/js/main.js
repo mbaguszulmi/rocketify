@@ -2,6 +2,7 @@ let font,
     page,
     menu,
     game,
+    help,
     asteroidImg,
     rocketImg,
     soundHappy,
@@ -27,6 +28,7 @@ function setup() {
     page = 0;
     menu = new Menu();
     game = new Game();
+    help = new Help();
 }
 
 function keyPressed() {
@@ -51,6 +53,9 @@ function mouseClicked() {
         case 1:
             game.onMouseClick();
             break;
+        case 2:
+            help.onMouseClick();
+            break;
     
         default:
             break;
@@ -64,6 +69,9 @@ function mouseMoved() {
             break;
         case 1:
             game.onMouseOver();
+            break;
+        case 2:
+            help.onMouseOver();
             break;
     
         default:
@@ -83,6 +91,10 @@ function draw() {
         case 1 /** bermain game */:
             isPlaying = true;
             game.draw();
+            break;
+
+        case 2 /** display help */:
+            help.draw();
             break;
     
         default:

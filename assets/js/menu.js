@@ -13,7 +13,7 @@ let Menu = class {
         if (soundSad.isPlaying()) {
             soundSad.stop();
         }
-        
+
         this.playButton.draw();
         this.helpButton.draw();
     }
@@ -26,6 +26,10 @@ let Menu = class {
     onMouseClick() {
         this.playButton.onMouseClick(() => {
             page = 1;
+        });
+
+        this.helpButton.onMouseClick(() => {
+            page = 2;
         });
     }
 }
