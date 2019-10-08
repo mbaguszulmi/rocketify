@@ -42,11 +42,35 @@ body {
             }
         }
     }
-
+    
+    
     main.main-app {
         color: #f3f3f3;
         padding: 20px;
         min-height: calc(100vh - 140px);
+        .box {
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            .container{
+                width: 50%;
+                height: 400px;
+                position: fixed;
+            }
+            .left{
+                left: 0;
+            }
+            .right{
+                right: 0;
+            }
+        }
+
+
+        img {
+            width: 30%;
+            display: inline-block;
+        }
 
         h1.welcome {
             text-align: center;
