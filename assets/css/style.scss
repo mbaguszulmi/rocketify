@@ -48,28 +48,32 @@ body {
         color: #f3f3f3;
         padding: 20px;
         min-height: calc(100vh - 140px);
-        .box {
+        .content-wrapper {
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
             display: block;
-            .container{
-                width: 50%;
-                height: 400px;
-                position: fixed;
-            }
-            .left{
-                left: 0;
-            }
-            .right{
-                right: 0;
-            }
-        }
 
+            section.creator {
+                .creator-grid {
+                    display: grid;
+                    grid-template-columns: repeat(2, calc(50% - 5%));
+                    grid-column-gap: 10%;
 
-        img {
-            width: 30%;
-            display: inline-block;
+                    .creator-container {
+                        img {
+                            width: 150px;
+                            display: block;
+                            margin: 0 auto;
+                            border-radius: 50%;
+                        }
+
+                        h4.person-name {
+                            text-align: center;
+                        }
+                    }
+                }
+            }
         }
 
         h1.welcome {

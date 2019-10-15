@@ -52,6 +52,32 @@ body main.main-app {
   min-height: calc(100vh - 140px);
 }
 
+body main.main-app .content-wrapper {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+body main.main-app .content-wrapper section.creator .creator-grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (calc(50% - 5%))[2];
+      grid-template-columns: repeat(2, calc(50% - 5%));
+  grid-column-gap: 10%;
+}
+
+body main.main-app .content-wrapper section.creator .creator-grid .creator-container img {
+  width: 150px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 50%;
+}
+
+body main.main-app .content-wrapper section.creator .creator-grid .creator-container h4.person-name {
+  text-align: center;
+}
+
 body main.main-app h1.welcome {
   text-align: center;
 }

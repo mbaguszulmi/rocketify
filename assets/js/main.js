@@ -33,9 +33,6 @@ function setup() {
 
 function keyPressed() {
     switch (page) {
-        case 0:
-            
-            break;
         case 1:
             game.onKeyPress();
             break;
